@@ -5,9 +5,20 @@ import CardContent from '@mui/material/CardContent';
 import { FaCloud } from "react-icons/fa";
 import axios from "axios"
 import './Test.css';
-import { icon } from '@fortawesome/fontawesome-svg-core';
+import moment from 'moment';
+import "moment/min/loTcales";
+
+moment.locale("ar")
 let cancelAxios = null
 function Test() {
+  const[date , setDate] = useState("")
+
+
+  useEffect(()=>{
+    const X = moment().format('MMMM Do YYYY');
+    setDate(X)
+  },[])
+
     const[temp , setTemp] = useState({
       number : null,
       description :"",
@@ -22,7 +33,7 @@ function Test() {
 
             {
             cancelToken: new axios.CancelToken((c)=>{
-                cancelAxios = c
+                cancelAxios =c
             })  
             }
         )
@@ -67,7 +78,7 @@ function Test() {
         <h1>{temp.name}</h1>
        </div>
        <div className="date">
-        <h3>مايو 29 2025</h3>
+        <h3>{date}</h3>
     
        </div>
        
@@ -93,9 +104,9 @@ function Test() {
                <div className='down'>
                 <h2>{temp.description}</h2>
                 <div className='child' >
-                    <h5>  الصغري: {temp.min}</h5>
+                    <h5>  Min : {temp.min}</h5>
                     <hr className='star'/>
-                    <h5>الكبري: {temp.max}</h5>
+                    <h5>Max : {temp.max}</h5>
                 </div>
                </div>
                
@@ -114,7 +125,7 @@ function Test() {
     
          </CardContent>
          <div >
-            <button style={{background:"none" , border:"none" , margin:"8px 4px" , fontWeight:"500" , fontSize:"20px", color:"white" , cursor:"pointer"}}>انجليزي</button>
+            <button style={{background:"none" , border:"none" , margin:"8px 4px" , fontWeight:"500" , fontSize:"20px", color:"white" , cursor:"pointer"}}>Arabic</button>
          </div>
     </div>
   )
