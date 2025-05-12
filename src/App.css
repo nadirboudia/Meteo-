@@ -1,0 +1,31 @@
+/* custom fonts */
+@font-face {
+    font-family: ibm;
+    src: url("../public/fonts/IBMPlexSansArabic-Regular.ttf");
+    font-weight: 500;
+}
+@font-face {
+    font-family: ibm;
+    src: url("../public/fonts/IBMPlexSansArabic-Light.ttf");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: ibm;
+    src: url("../public/fonts/IBMPlexSansArabic-Medium.ttf");
+    font-weight: 600;
+}
+body{
+    margin: 0;
+    padding: 0;
+  }
+
+.app{
+    background: #0066cc; /* background outside the card */
+    height: 100vh; 
+    width: 100%;        /* make it cover full screen height */
+   
+}
+.container{
+    padding-top: 300px;
+}

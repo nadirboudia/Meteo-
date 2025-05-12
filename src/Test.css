@@ -1,0 +1,164 @@
+@font-face {
+    font-family: ibm;
+    src: url("../public/fonts/IBMPlexSansArabic-Regular.ttf");
+    font-weight: 500;
+}
+@font-face {
+    font-family: ibm;
+    src: url("../public/fonts/IBMPlexSansArabic-Light.ttf");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: ibm;
+    src: url("../public/fonts/IBMPlexSansArabic-Medium.ttf");
+    font-weight: 600;
+}
+
+
+
+
+.test{
+    display: flex;
+    flex-direction: column;
+    height: 30vh;
+   background: #004a99;
+   border-radius: 20px;
+   direction: rtl;
+}
+.test .header {
+    display: flex;
+    gap: 0px;   
+    width: 100%;
+    height: 29%;
+    align-items: center;
+
+}
+.test .header h1{
+    font-weight: 600;
+    font-size:60px;
+    padding: 10px 20px;
+    font-family: ibm;
+    color: white;
+}
+.test .header h3{
+    margin-top: 70%;
+    font-weight: 500;
+    font-family: ibm;
+    color: white;
+}
+.test  hr{
+    width: 100%;
+    height: 1px;
+    background-color: black;
+    border: none;
+}
+.test .content{
+
+    display: flex;
+    width: 100%;
+    height: 68%;
+    justify-content: space-between;
+    
+}
+.test .information {
+  margin-top: 10px;
+    padding: 0px 20px;
+    
+}
+.test .information .degre{
+    display: flex;
+   align-items: center;
+    gap: 10px;            /* space between h1 and icons */
+    position: relative;
+   height: 40%;
+      font-size: 40px;
+      font-family: ibm;
+      font-weight: 400;
+      
+}
+.test .information .degre .icon1{
+     
+    position:absolute;
+    right: 110px;
+    top: 20px;
+}
+.test .information .degre .icon1 svg{
+    fill: white;
+font-size: 50px;
+}
+.test .information .degre .icon2 svg{
+font-size: 40px;
+margin-top: 18px;
+fill: rgb(59, 54, 54);
+}
+.test .information .degre h1{
+    color: white;
+    font-weight: 400;
+}
+
+.test .information .down{
+    display: flex;
+    flex-direction: column;
+    height: 60%;
+
+}
+.test .information .down .child{
+    display: flex;
+    justify-content: space-between;
+    
+    height: 20%;
+    align-items: center;
+    
+}
+.test .information .down h2{
+   
+    color: white;
+    font-weight: 400;
+    text-align: center;
+}
+.test .information .down .child h5{
+    color: white;
+    font-weight: 400;
+    font-size: medium;
+    
+}
+.test .information .down .child .star{
+    height: 30px;
+    width: 1px;
+   background: white;
+
+}
+
+.test .content .icon{
+display: flex;
+align-items: center;
+justify-content: center;
+
+width: 60%;
+
+}
+.test .content .icon svg{
+    fill: white;
+    font-size: 200px;
+}
+ .test .starr hr{
+    height: 1px;
+    background-color: white;
+    border: none;
+ }
+
+ .test .traduction .btn{
+ 
+background-color: none;
+
+ }
+
+
+
+
+
+
+
+
+
