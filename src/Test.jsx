@@ -5,22 +5,55 @@ import CardContent from '@mui/material/CardContent';
 import { FaCloud } from "react-icons/fa";
 import axios from "axios"
 import './Test.css';
-
+import { icon } from '@fortawesome/fontawesome-svg-core';
+let cancelAxios = null
 function Test() {
-    const[temp , setTemp] = useState(null)
+    const[temp , setTemp] = useState({
+      number : null,
+      description :"",
+      min:null,
+      max:null,
+      name:"",
+      icons:""
+    })
 
     useEffect(()=>{
-        axios.get('https://api.openweathermap.org/data/2.5/weather?lat=34.8303&lon=0.1517&appid=59977d551fb11d64e56d1c1174aa6aaa')
+        axios.get('https://api.openweathermap.org/data/2.5/weather?lat=34.8303&lon=0.1517&appid=59977d551fb11d64e56d1c1174aa6aaa',
+
+            {
+            cancelToken: new axios.CancelToken((c)=>{
+                cancelAxios = c
+            })  
+            }
+        )
         .then(function (response) {
           const responsetemp= Math.round(response.data.main.temp- 272.15)
-          setTemp(responsetemp)
-          
+          const min= Math.round(response.data.main.temp_min- 272.15)
+          const max= Math.round(response.data.main.temp_max - 272.15)
+          const des= response.data.weather[0].description
+          const name= response.data.name
+          const responseicon= response.data.weather[0].icon
+          console.log(response)
+          setTemp({
+            number:responsetemp,
+            description:des,
+            min:min,
+            max:max,
+            name:name,
+            icons:`https://openweathermap.org/img/wn/${responseicon}@2x.png`,
+          })
         })
+
         .catch(function (error) {
           // handle error
           console.log(error);
         })
-      
+        
+        return(()=>{
+          console.log("canceling")
+          cancelAxios()
+        })
+
     },[])
 
 
@@ -31,7 +64,7 @@ function Test() {
        <div className="header">
 
        <div className="city">
-        <h1>الرياض</h1>
+        <h1>{temp.name}</h1>
        </div>
        <div className="date">
         <h3>مايو 29 2025</h3>
@@ -46,21 +79,23 @@ function Test() {
         <div className="information">
             <div className="degre">
                 <h1>
-                  {temp}
+                  {temp.number}
                 </h1>
               
-                   
-                    <span className='icon2'><FaCloud/></span>
+                    
+                 
+                  <img src={temp.icons} alt="icon2" />
+                 
                     <span className='icon1'> <FaCloud/> </span>
                 
             </div>
                  
                <div className='down'>
-                <h2>broken clouds</h2>
+                <h2>{temp.description}</h2>
                 <div className='child' >
-                    <h5>  الصغري: 38</h5>
+                    <h5>  الصغري: {temp.min}</h5>
                     <hr className='star'/>
-                    <h5>الكبري: 38</h5>
+                    <h5>الكبري: {temp.max}</h5>
                 </div>
                </div>
                
